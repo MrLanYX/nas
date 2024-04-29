@@ -3,7 +3,7 @@ const path = require('node:path');
 const { statSync } = require('node:fs');
 const { app } = require('egg-mock/bootstrap');
 
-describe('test/app/controller/home.test.js', () => {
+describe('test/app/controller/user.test.js', () => {
   it('should assert', async () => {
     const pkg = require('../../../package.json');
     assert(app.config.keys.startsWith(pkg.name));
