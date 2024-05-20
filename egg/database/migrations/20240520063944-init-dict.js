@@ -2,19 +2,20 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-	// 在执行数据库升级时调用的函数，创建 users 表
 	up: async (queryInterface, Sequelize) => {
 		const { INTEGER, DATE, STRING } = Sequelize;
-		await queryInterface.createTable("users", {
+		await queryInterface.createTable("dict", {
 			id: { type: INTEGER, primaryKey: true, autoIncrement: true },
 			name: STRING(30),
-			age: INTEGER,
+			type: STRING(1),
+			remake: STRING(200),
 			created_at: DATE,
 			updated_at: DATE,
+			active_flag: STRING(1),
+			delete_flag: STRING(1),
 		});
 	},
-	// 在执行数据库降级时调用的函数，删除 users 表
 	down: async (queryInterface) => {
-		await queryInterface.dropTable("users");
+		await queryInterface.dropTable("dict");
 	},
 };
